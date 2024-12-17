@@ -4,11 +4,14 @@ import "./index.css";
 // import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayOut from "./Components/Main/MainLayOut.jsx";
-import Register from "./Components/Pages/Register.jsx";
+// import Register from "./Components/Pages/Register.jsx";
 import AuthProvider from "./Components/Main/AuthProvider.jsx";
-import Home from "./Components/Pages/Home.jsx";
-import Login from "./Components/Pages/Login.jsx";
+import Home from "./Components/Pages/Home/Home.jsx";
+
 import Route2 from "./Components/Pages/Route2.jsx";
+import AddEquipment from "./Components/Pages/AddEquipment/AddEquipment.jsx";
+import Login from "./Components/Pages/Authentication/Login.jsx";
+import Register from "./Components/Pages/Authentication/Register.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "route2",
         element: <Route2></Route2>,
+      },
+      {
+        path: "add",
+        element: <AddEquipment></AddEquipment>,
       },
     ],
   },

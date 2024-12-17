@@ -20,12 +20,15 @@ const Navbar = () => {
         <Link to="/route2">Route2</Link>
       </li>
       <li>
-        <Link>Route3</Link>
+        <Link to="/add">Add Equipment</Link>
       </li>
     </>
   );
+  // const loggingOut = () =>{
+
+  // }
   if(loading){
-    <Loading></Loading>
+   return <Loading></Loading>
   }
 
   return (
@@ -77,14 +80,14 @@ const Navbar = () => {
           {user && user?.email ? (
             <div>
               <button>
-                <Link className="px-4 py-2 bg-yellow-800 rounded-md  text-white font-semibold">
+                <Link onClick={logOut} className="px-4 py-2 bg-yellow-800 rounded-md  text-white font-semibold">
                   LogOut
                 </Link>
               </button>
             </div>
           ) : (
             <div>
-              <button className="px-4 py-2 bg-yellow-800 rounded-md  text-white font-semibold">
+              <button className="px-4 py-2 bg-yellow-800 rounded-md mr-5 text-white font-semibold">
                 <Link to="/register">Register</Link>
               </button>
               <button className="px-4 py-2 bg-yellow-800 rounded-md text-white font-semibold">

@@ -1,15 +1,16 @@
 import React from "react";
-import team1 from '../../assets/team1.jpg'
-import team2 from '../../assets/team2.jpg'
+
+import team2 from '../../../assets/team2.jpg'
 import { motion } from "motion/react"
 import { easeOut } from "motion";
+import team1 from '../../../assets/team1.jpg'
 
 const Banner = () => {
   return (
     <div>
-      <div className="hero bg-base-200 h-[500px]">
+      <div className="hero bg-base-200 md:h-[500px]">
         <div className="hero-content flex-col  lg:flex-row-reverse">
-          <div className="flex-1">
+          <div className="md:flex-1 w-full">
             <motion.img
             animate={{
                 y: [0,50,0]
@@ -18,7 +19,7 @@ const Banner = () => {
                 duration:5, delay:1, repeat:Infinity
             }}
               src={team1}
-              className="max-w-sm rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-900 shadow-2xl w-80"
+              className="max-w-sm rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-900 shadow-2xl w-40 md:w-80"
             />
           
                 <motion.img  animate={{
@@ -26,10 +27,10 @@ const Banner = () => {
             }}
             transition={{
                 duration:5, delay:1, repeat:Infinity
-            }}  className="max-w-sm w-80 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-900" src={team2} alt="" />
+            }}  className="max-w-sm w-40 md:w-80 rounded-t-[40px] rounded-br-[40px] border-l-4 border-b-4 border-blue-900" src={team2} alt="" />
             
           </div>
-          <div className="flex-1">
+          <div className="md:flex-1">
             <motion.h1 animate={{
                 x:[0,50,0],
                 transition: { duration: 4,repeat: Infinity,delay:2, ease: easeOut },
@@ -42,7 +43,7 @@ const Banner = () => {
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <button className="btn bg-blue-950 text-white font-bold">Get Started</button>
           </div>
         </div>
       </div>
