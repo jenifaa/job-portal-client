@@ -13,6 +13,7 @@ const Login = () => {
   const { userLogin, setUser, setLoading, signInWithGoogle, signInWithGitHub } =
     useContext(AuthContext);
   const navigate = useNavigate();
+  
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
@@ -32,6 +33,7 @@ const Login = () => {
       });
   };
   const location = useLocation();
+  // const from = location.state || '/';
   const handleLogin = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -39,7 +41,7 @@ const Login = () => {
     userLogin(email, password).then((result) => {
       const user = result.user;
       setUser(user);
-      Navigate(location?.state ? location.state : "/");
+      navigate(location?.state ? location.state : "/");
     });
   };
   return (

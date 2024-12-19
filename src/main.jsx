@@ -9,9 +9,14 @@ import AuthProvider from "./Components/Main/AuthProvider.jsx";
 import Home from "./Components/Pages/Home/Home.jsx";
 
 import Route2 from "./Components/Pages/Route2.jsx";
-import AddEquipment from "./Components/Pages/AddEquipment/AddEquipment.jsx";
+
 import Login from "./Components/Pages/Authentication/Login.jsx";
 import Register from "./Components/Pages/Authentication/Register.jsx";
+import JobDetails from "./Components/Pages/Details/JobDetails.jsx";
+import JobApply from "./Components/Pages/UserInfo/JobApply.jsx";
+import MyApplications from "./Components/Pages/UserInfo/MyApplications.jsx";
+import PrivateRoute from "./Components/Main/PrivateRoute.jsx";
+import AddJobs from "./Components/Pages/AddJobs/AddJobs.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,8 +32,12 @@ const router = createBrowserRouter([
       },
       {
         path: "add",
-        element: <AddEquipment></AddEquipment>,
+        element: <PrivateRoute><AddJobs></AddJobs></PrivateRoute>,
       },
+      {
+        path: "myApplication",
+        element: <PrivateRoute><MyApplications></MyApplications></PrivateRoute>
+      }
     ],
   },
   {
@@ -39,6 +48,16 @@ const router = createBrowserRouter([
     path: "login",
     element: <Login></Login>,
   },
+  {
+    path: "/jobs/:id",
+    element:<PrivateRoute> <JobDetails></JobDetails></PrivateRoute>,
+    loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+  },
+  {
+    path: "/jobApply/:id",
+    element: <PrivateRoute><JobApply></JobApply></PrivateRoute>
+  },
+ 
 ]);
 
 createRoot(document.getElementById("root")).render(

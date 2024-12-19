@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import { Link, Links } from "react-router-dom";
+import { Link, Links, NavLink } from "react-router-dom";
 import bird from "../../assets/bird.json";
 import { useContext } from "react";
 import { AuthContext } from "../Main/AuthProvider";
@@ -13,14 +13,17 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
       </li>
 
       <li>
-        <Link to="/route2">Route2</Link>
+        <NavLink to="/route2">Route2</NavLink>
       </li>
       <li>
-        <Link to="/add">Add Equipment</Link>
+        <NavLink to="/add">Add Equipment</NavLink>
+      </li>
+      <li>
+        <NavLink to="/myApplication">My Applications</NavLink>
       </li>
     </>
   );
@@ -59,9 +62,13 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <div className="w-28 mt-5 h-24 flex justify-center items-center">
+         <div className="flex items-center gap-2">
+         <div className="w-20 mt-5 h-20 flex justify-center items-center">
             <Lottie animationData={bird}></Lottie>
+           
           </div>
+          <p className="font-bold text-3xl text-blue-900">JobBox</p>
+         </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>

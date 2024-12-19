@@ -3,9 +3,11 @@ import { CiLocationOn } from "react-icons/ci";
 
 import { SlBriefcase } from "react-icons/sl";
 import { SlCalender } from "react-icons/sl";
+import { Link } from "react-router-dom";
 
 const JobCard = ({ job }) => {
   const {
+    _id,
     title,
     location,
     jobType,
@@ -50,7 +52,7 @@ const JobCard = ({ job }) => {
           </div>
           <div className="card-actions items-center justify-between">
             <p className="font-semibold "><span className="text-green-700 text-xl">${salaryRange.min}-{salaryRange.max}</span> {salaryRange.currency} </p>
-            <button className="btn border bg-slate-300 text-blue-500 px-4 py-1 rounded-xl hover:bg-blue-950 hover:text-white hover:font-bold">Apply</button>
+            <Link to={`/jobs/${_id}`} className="btn border bg-slate-300 text-blue-500 px-4 py-1 rounded-xl hover:bg-blue-950 hover:text-white hover:font-bold">Apply</Link>
           </div>
         </div>
       </div>
